@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Node.js Carrusel de Fotos</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Node.js Carrusel de Fotos</h1>
+        
+        <form action="/upload" method="post" enctype="multipart/form-data" class="mb-3">
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" name="photo" accept="image/*" class="custom-file-input" required>
+                    <label class="custom-file-label" for="customFile">Seleccionar Foto</label>
+                </div>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Subir Foto</button>
+                </div>
+            </div>
+        </form>
+
+        <h2>Fotos Cargadas</h2>
+        <div class="row">
+            {{#each photos}}
+                <div class="col-md-3">
+                    <img src="/public/uploads/{{this}}" class="img-fluid mb-3" alt="Imagen">
+                </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
